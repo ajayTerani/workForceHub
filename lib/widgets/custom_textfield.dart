@@ -29,6 +29,7 @@ class CustomTextfield extends StatelessWidget {
     this.prefixIconConstraints,
     this.suffixIconConstraints,
   });
+
   final String? hintText;
   final TextEditingController? controller;
   final Widget? suffixIcon;
@@ -70,7 +71,6 @@ class CustomTextfield extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         inputFormatters: inputFormatters,
         maxLength: maxLength,
-
         readOnly: readOnly,
         decoration: InputDecoration(
           contentPadding: contentPadding,
@@ -83,12 +83,12 @@ class CustomTextfield extends StatelessWidget {
           suffixIconConstraints: suffixIconConstraints,
           errorMaxLines: 3,
           border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.lightBlue),
+            borderSide: BorderSide(color: Colors.yellow),
             borderRadius: borderRadius ?? BorderRadius.circular(15),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: borderRadius ?? BorderRadius.circular(15),
-            borderSide: const BorderSide(color: Colors.lightBlue),
+            borderSide: const BorderSide(color: Colors.yellow),
           ),
           enabledBorder: OutlineInputBorder(
               borderRadius: borderRadius ?? BorderRadius.circular(15),

@@ -1,4 +1,3 @@
-
 class EmployeeModel {
   int? id;
   String? firstName;
@@ -33,6 +32,3 @@ class EmployeeModel {
     return data;
   }
 }
-
-
-

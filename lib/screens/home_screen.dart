@@ -58,7 +58,8 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  void _updateEmployeeList(EmployeeModel oldEmployee, EmployeeModel newEmployee) {
+  void _updateEmployeeList(
+      EmployeeModel oldEmployee, EmployeeModel newEmployee) {
     setState(() {
       final index = employees.indexOf(oldEmployee);
       if (index != -1) {
@@ -126,148 +127,148 @@ class _HomeScreenState extends State<HomeScreen> {
         body: isLoading
             ? RectangleBoxShimmerWidget()
             : TabBarView(
-          children: employees.map((employee) {
-            return Container(
-              padding: EdgeInsets.all(height * 0.02),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (employee.avatar != null)
-                          CircleAvatar(
-                            radius: width * 0.3,
-                            backgroundImage:
-                            NetworkImage(employee.avatar!),
+                children: employees.map((employee) {
+                  return Container(
+                    padding: EdgeInsets.all(height * 0.02),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              if (employee.avatar != null)
+                                CircleAvatar(
+                                  radius: width * 0.3,
+                                  backgroundImage:
+                                      NetworkImage(employee.avatar!),
+                                ),
+                            ],
                           ),
-                      ],
-                    ),
-                    SizedBox(height: height * 0.03),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "First Name: ${employee.firstName}",
-                          style: TextStyle(
-                            fontSize: width * 0.04,
-                            fontWeight: FontWeight.bold,
+                          SizedBox(height: height * 0.03),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "First Name: ${employee.firstName}",
+                                style: TextStyle(
+                                  fontSize: width * 0.04,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: height * 0.01),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Last Name: ${employee.lastName}",
-                          style: TextStyle(
-                            fontSize: width * 0.04,
-                            fontWeight: FontWeight.bold,
+                          SizedBox(height: height * 0.01),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Last Name: ${employee.lastName}",
+                                style: TextStyle(
+                                  fontSize: width * 0.04,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: height * 0.01),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Email: ${employee.email}",
-                          style: TextStyle(
-                            fontSize: width * 0.04,
-                            fontWeight: FontWeight.bold,
-                            overflow: TextOverflow.ellipsis,
+                          SizedBox(height: height * 0.01),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Email: ${employee.email}",
+                                style: TextStyle(
+                                  fontSize: width * 0.04,
+                                  fontWeight: FontWeight.bold,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: height * 0.02),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            _editEmployee(employee);
-                          },
-                          child: Text(
-                            "Edit",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: width * 0.035,
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: width * 0.03),
-                        ElevatedButton(
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text(
-                                    "Delete Employee",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: width * 0.06,
-                                    ),
+                          SizedBox(height: height * 0.02),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  _editEmployee(employee);
+                                },
+                                child: Text(
+                                  "Edit",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: width * 0.035,
                                   ),
-                                  content: Text(
-                                    "Are you sure you want to delete ${employee.firstName}?",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: width * 0.04,
-                                    ),
+                                ),
+                              ),
+                              SizedBox(width: width * 0.03),
+                              ElevatedButton(
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: Text(
+                                          "Delete Employee",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.06,
+                                          ),
+                                        ),
+                                        content: Text(
+                                          "Are you sure you want to delete ${employee.firstName}?",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: width * 0.04,
+                                          ),
+                                        ),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              "Cancel",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: width * 0.04,
+                                              ),
+                                            ),
+                                          ),
+                                          TextButton(
+                                            onPressed: () {
+                                              _deleteEmployee(employee);
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              "Delete",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: width * 0.04,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Text(
+                                  "Delete",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: width * 0.035,
                                   ),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text(
-                                        "Cancel",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: width * 0.04,
-                                        ),
-                                      ),
-                                    ),
-                                    TextButton(
-                                      onPressed: () {
-                                        _deleteEmployee(employee);
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text(
-                                        "Delete",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: width * 0.04,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                          },
-                          child: Text(
-                            "Delete",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: width * 0.035,
-                            ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ],
-                ),
+                  );
+                }).toList(),
               ),
-            );
-          }).toList(),
-        ),
       ),
     );
   }

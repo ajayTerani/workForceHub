@@ -4,10 +4,10 @@ import 'package:http/http.dart' as http;
 
 import '../models/employee_model.dart';
 
-
-class GetEmployeeData{
+class GetEmployeeData {
   Future<List<EmployeeModel>> fetchData() async {
-    final response = await http.get(Uri.parse('https://reqres.in/api/users?page=1'));
+    final response =
+        await http.get(Uri.parse('https://reqres.in/api/users?page=1'));
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);

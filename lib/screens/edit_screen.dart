@@ -58,37 +58,34 @@ class _EditScreenState extends State<EditScreen> {
               controller: nameController,
               hintText: 'Enter First Name',
               validator: (value) {
-                if (isFieldEmpty(value??"")) {
+                if (isFieldEmpty(value ?? "")) {
                   return 'Please enter First Name';
                 }
                 return null;
               },
             ),
             SizedBox(height: height * 0.03),
-
             CustomTextfield(
               controller: lastNameController,
               hintText: 'Enter Last Name',
               validator: (value) {
-                if (isFieldEmpty(value??"")) {
+                if (isFieldEmpty(value ?? "")) {
                   return 'Please enter Last Name';
                 }
                 return null;
               },
             ),
             SizedBox(height: height * 0.03),
-
             CustomTextfield(
               controller: emailController,
               hintText: 'Enter Email',
               validator: (value) {
-                if (isFieldEmpty(value??"")) {
+                if (isFieldEmpty(value ?? "")) {
                   return 'Please enter Email';
                 }
                 return null;
               },
             ),
-
             SizedBox(height: height * 0.03),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

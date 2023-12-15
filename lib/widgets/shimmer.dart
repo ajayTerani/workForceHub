@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 class RectangleBoxShimmerWidget extends StatelessWidget {
+  const RectangleBoxShimmerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var baseColour = Theme.of(context).backgroundColor;
+    var baseColour = Theme.of(context).colorScheme.background;
 
     return Shimmer.fromColors(
       baseColor: baseColour,
